@@ -13,8 +13,32 @@ avi.first_name = "Avi"
 avi.last_name = "Flombaum"
 
 
-some_knowledge = avi.teach 
+some_knowledge = avi.teach
 
 steve.learn(some_knowledge)
 
 puts "Steve just learned this important knowledge: '#{steve.knowledge.first}' from Avi"
+
+jim = User.new
+jim.first_name = "Slim"
+jim.last_name = "Jim"
+# jim.learn #=> returns error because learn method is part of Student class
+
+more_knowledge = avi.teach
+steve.learn(more_knowledge)
+
+gene = Student.new
+gene.first_name = "Gene"
+gene.last_name = "Yoo"
+
+gene.learn(avi.teach)
+gene.learn(avi.teach)
+gene.learn(avi.teach)
+
+puts "Steve just learned this important knowledge:"
+steve.knowledge.each_with_index {|bit, index| puts "#{index+1}. #{bit}"}
+puts " from Avi."
+
+puts "Gene just learned this important knowledge:"
+gene.knowledge.each_with_index {|bit, index| puts "#{index+1}. #{bit}"}
+puts " from Avi."
